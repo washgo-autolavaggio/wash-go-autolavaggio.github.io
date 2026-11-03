@@ -429,7 +429,7 @@
       <div class="testi">
         <div class="tappa attiva" data-da="0" data-a="0.05">
           <p class="occhiello sopra">Autolavaggio H24 · Filadelfia (VV)</p>
-          <h1 class="titolo">Sono le <em id="ora">23:47</em>.<br><span id="stato-apertura">Siamo aperti.</span></h1>
+          <h1 class="titolo">Sono le <em id="ora">23:47</em>.<br>Siamo aperti.</h1>
           <p id="sottotitolo">Anche a quest'ora. Il portale e le piste self-service sono sempre accesi.</p>
         </div>
         <div class="tappa" data-da="0.05" data-a="0.37">
@@ -1052,7 +1052,6 @@
   }
 
   /* ---------- Ora reale (fuso di Roma) ---------- */
-  var APERTURA = "2026-11-06";
   var minutiBase = 23 * 60 + 47, oraBase = 23;
   function leggiOra() {
     try {
@@ -1068,15 +1067,6 @@
     else if (oraBase < 12) frase = "Prima del lavoro o prima di partire: passa quando vuoi.";
     else if (oraBase < 18) frase = "Polvere, fango, una settimana di strade di campagna. Passa quando vuoi.";
     else frase = "Finito di lavorare? Passa stasera, stanotte o domattina.";
-    /* Prima dell'inaugurazione la pagina annuncia il giorno di apertura invece di dire "Siamo aperti" */
-    var oggi = "";
-    try { oggi = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Rome" }).format(new Date()); } catch (e) { var dd = new Date(); oggi = dd.getFullYear() + "-" + ("0" + (dd.getMonth() + 1)).slice(-2) + "-" + ("0" + dd.getDate()).slice(-2); }
-    if (oggi < APERTURA) {
-      $("stato-apertura").textContent = "Apriamo venerdì 6 novembre.";
-      frase = "Portale automatico e piste self-service, aperti 24 ore su 24. Ti aspettiamo all'inaugurazione.";
-    } else {
-      $("stato-apertura").textContent = "Siamo aperti.";
-    }
     $("sottotitolo").textContent = frase;
   }
   function formatta(min) {
