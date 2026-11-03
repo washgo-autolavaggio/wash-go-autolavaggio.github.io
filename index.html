@@ -86,15 +86,15 @@
   }
   .occhiello { font-weight: 600; font-size: 1.05rem; color: var(--ciano); letter-spacing: -0.005em; }
 
-  .js .rivela { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--curva), transform 1s var(--curva); transition-delay: calc(var(--i, 0) * 90ms); }
+  .js .rivela { opacity: 0; transform: translateY(16px); transition: opacity .6s var(--curva), transform .6s var(--curva); transition-delay: calc(var(--i, 0) * 70ms); }
   .js .rivela.visto { opacity: 1; transform: none; }
 
   /* ---------- Testata ---------- */
   .testata {
     position: fixed; inset: 0 0 auto 0; z-index: 20;
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    padding: calc(env(safe-area-inset-top, 0px) + 12px) var(--gutter) 12px;
-    background: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, 0));
+    padding: calc(env(safe-area-inset-top, 0px) + 12px) var(--gutter) 22px;
+    background: linear-gradient(#000 0, rgba(0, 0, 0, .94) 70%, rgba(0, 0, 0, 0));
     pointer-events: none;
   }
   .testata > * { pointer-events: auto; }
@@ -154,9 +154,9 @@
   .tappa {
     position: absolute; inset: 0 0 auto 0;
     opacity: 0; transform: translateY(14px);
-    transition: opacity .6s var(--curva), transform .6s var(--curva);
+    transition: opacity .18s ease-out, transform .18s ease-out;
   }
-  .tappa.attiva { opacity: 1; transform: none; }
+  .tappa.attiva { opacity: 1; transform: none; transition: opacity .55s var(--curva) .12s, transform .55s var(--curva) .12s; }
   .tappa .titolo { font-size: clamp(2.4rem, 7.4vw, 4.8rem); }
   .tappa p { margin-top: 0.8rem; color: var(--grigio); font-size: clamp(1.05rem, 2.2vw, 1.25rem); max-width: 46ch; }
   .tappa em { font-style: normal; color: var(--giallo); font-variant-numeric: tabular-nums; }
@@ -280,6 +280,7 @@
   .griglia-fed { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; margin-top: 56px; align-items: stretch; }
   .blocco-fed { padding: 34px 30px; border-radius: var(--r); background: var(--card); }
   .griglia-fed h3 { font-weight: 600; font-size: 1.1rem; color: var(--testo); margin-bottom: 24px; letter-spacing: -0.01em; }
+  .leg-fed { display: flex; justify-content: space-between; margin: 0 0 10px; font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--grigio); }
   .scaglioni { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
   .scaglione { display: grid; grid-template-columns: 3.6rem 1fr 4.2rem; align-items: center; gap: 14px; font-variant-numeric: tabular-nums; }
   .scaglione .da { color: var(--grigio); font-weight: 500; }
@@ -745,13 +746,13 @@
           <svg class="icona-grande" aria-hidden="true" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256L0 448c0 35.3 28.7 64 64 64l42.8 0c-6.6-5.9-10.8-14.4-10.8-24l0-112c0-20.8 11.3-38.900 28.1-48.6l21-64.7c7.5-23.1 29-38.7 53.3-38.7l115.2 0c24.3 0 45.8 15.6 53.3 38.7l21 64.7c16.8 9.7 28.2 27.8 28.2 48.6l0 112c0 9.6-4.2 18.1-10.8 24l42.8 0c35.3 0 64-28.7 64-64l0-192C512 114.6 397.4 0 256 0z"/></svg>
           <span class="numero">5</span>
           <h3>Portale automatico</h3>
-          <p>Programmi tra cui scegliere, fino al Total: tutto incluso, con polish e doppia asciugatura.</p>
+          <p>5 programmi tra cui scegliere, da 3 a 12&nbsp;€. Il più completo è il Total, con polish e doppia asciugatura.</p>
         </article>
         <article class="modo taglio rivela" style="--i:2">
           <svg class="icona-grande" aria-hidden="true" viewBox="0 0 576 512"><path d="M275.5 6.6C278.3 2.5 283 0 288 0s9.7 2.5 12.5 6.6L366.8 103C378 119.3 384 138.6 384 158.3l0 1.7c0 53-43 96-96 96s-96-43-96-96l0-1.7c0-19.8 6-39 17.2-55.3L275.5 6.6z"/></svg>
           <span class="numero">2</span>
           <h3>Piste self-service</h3>
-          <p>Lancia, spazzola e decidi tu i tempi. Aperte H24, come il portale.</p>
+          <p>2 piste dove lavi tu, con lancia e spazzola, nei tempi che vuoi. Aperte H24, come il portale.</p>
         </article>
       </div>
     </div>
@@ -769,7 +770,7 @@
         <span class="n" aria-hidden="true">1</span>
         <div>
           <h3>Total <span class="badge">Il più completo</span></h3>
-          <p>Anti moscerini, alta pressione su tetto, fiancate e cerchi, doppia spazzolatura con shampoo, cera, <strong>polish</strong> e doppia asciugatura. <span class="nota">Con la ricarica da 50&nbsp;€ ti costa 10&nbsp;€.</span></p>
+          <p>Anti moscerini, alta pressione su tetto, fiancate e cerchi, doppia spazzolatura con shampoo, cera, <strong>polish</strong> e doppia asciugatura. <span class="nota">Con la tessera ti costa 10&nbsp;€: carichi 50&nbsp;€ e ne ricevi 60.</span></p>
         </div>
         <span class="prezzo">12&nbsp;€</span>
       </li>
@@ -854,6 +855,7 @@
       <div class="griglia-fed">
         <div class="blocco-fed taglio rivela" style="--i:1">
           <h3>Tessera portale automatico</h3>
+          <p class="leg-fed" aria-hidden="true"><span>Carichi</span><span>Ricevi</span></p>
           <ul class="scaglioni">
             <li class="scaglione"><span class="da">10&nbsp;€</span><span class="barra" role="img" aria-label="Carichi 10 euro, ricevi 11 euro di credito"><span class="base" style="width:16.67%"></span><span class="bonus" style="width:1.67%"></span></span><span class="a" data-da="10" data-a="11">11&nbsp;€</span></li>
 <li class="scaglione"><span class="da">20&nbsp;€</span><span class="barra" role="img" aria-label="Carichi 20 euro, ricevi 23 euro di credito"><span class="base" style="width:33.33%"></span><span class="bonus" style="width:5.00%"></span></span><span class="a" data-da="20" data-a="23">23&nbsp;€</span></li>
